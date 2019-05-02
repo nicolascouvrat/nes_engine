@@ -1,3 +1,0 @@
-/home/nicolas/projects/nes_engine/build/CMakeFiles/rebuild_cache.dir
-/home/nicolas/projects/nes_engine/build/CMakeFiles/nes_engine.dir
-/home/nicolas/projects/nes_engine/build/CMakeFiles/edit_cache.dir
