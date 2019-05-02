@@ -1,0 +1,20 @@
+CXX = g++
+BUILD_FOLDER = build
+EXECUTABLE = opengl_test
+FLAGS = `pkg-config --libs glfw3` -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor
+
+all: compile
+	./$(BUILD_FOLDER)/$(EXECUTABLE)
+
+compile: $(BUILD_FOLDER)/test_nes_engine.o $(BUILD_FOLDER)/nes_engine.o $(BUILD_FOLDER)/resource_manager.o $(BUILD_FOLDER)/shader_program.o $(BUILD_FOLDER)/logger.o
+	$(CXX) -g glad.c -o $(BUILD_FOLDER)/$(EXECUTABLE) $^ $(FLAGS)
+
+$(BUILD_FOLDER)/logger.o: logger/logger.cpp
+	$(CXX) -o $@ -c $< -g
+
+$(BUILD_FOLDER)/%.o: %.cpp
+	$(CXX) -o $@ -c $< -g
+
+.PHONY: clean
+clean:
+	rm build/*
